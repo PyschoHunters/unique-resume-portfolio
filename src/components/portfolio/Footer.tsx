@@ -8,12 +8,12 @@ const Footer = () => {
     <footer className="py-10 bg-gradient-to-t from-blue-50/90 to-transparent text-center">
       <div className="container mx-auto px-4">
         <div className="mb-4">
-          <span className="text-xl font-display font-bold text-gradient">AJV Manumohan</span>
+          <span className="text-xl font-display font-bold text-gradient">Manu Mohan</span>
         </div>
         
         <div className="flex justify-center space-x-6 mb-6">
           <a 
-            href="https://github.com/ajvmanumohan" 
+            href="https://github.com/PyschoHunters" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-foreground/70 hover:text-primary transition-colors"
@@ -24,7 +24,7 @@ const Footer = () => {
             </svg>
           </a>
           <a 
-            href="https://www.linkedin.com/in/ajvmanumohan" 
+            href="https://www.linkedin.com/in/manumohanai/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-foreground/70 hover:text-primary transition-colors"
@@ -35,12 +35,23 @@ const Footer = () => {
             </svg>
           </a>
           <a 
-            href="mailto:ajvmanumohan@gmail.com"
+            href="mailto:manumohan.ai21@gmail.com"
             className="text-foreground/70 hover:text-primary transition-colors"
             aria-label="Email"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </a>
+          <a 
+            href="https://leetcode.com/u/manumohan0204/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground/70 hover:text-primary transition-colors"
+            aria-label="LeetCode Profile"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.039-1.901l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.498-1.366-.037-1.901-.535-.535-1.387-.552-1.902-.038l-10.1 10.101c-.981.982-1.494 2.337-1.494 3.835 0 1.498.513 2.895 1.494 3.875l4.347 4.361c.981.979 2.337 1.452 3.834 1.452s2.853-.512 3.835-1.494l2.609-2.637c.514-.514.496-1.365-.039-1.9s-1.386-.553-1.899-.039zM20.811 13.01H10.666c-.702 0-1.27.604-1.27 1.346s.568 1.346 1.27 1.346h10.145c.701 0 1.27-.604 1.27-1.346s-.569-1.346-1.27-1.346z" />
             </svg>
           </a>
         </div>
@@ -54,7 +65,7 @@ const Footer = () => {
         </div>
         
         <p className="text-foreground/60 text-sm">
-          © {currentYear} AJV Manumohan. All rights reserved.
+          © {currentYear} Manu Mohan. All rights reserved.
         </p>
         
         <div className="text-sm text-foreground/60 mt-2 flex items-center justify-center">

@@ -7,8 +7,8 @@ const skillCategories = [
     skills: ["C/C++", "Python", "HTML", "CSS", "JavaScript"]
   },
   {
-    title: "Libraries",
-    skills: ["C++ STL", "PyTorch", "SKlearn", "TensorFlow", "Pandas", "NumPy"]
+    title: "Libraries & Tools",
+    skills: ["PyTorch", "SKlearn", "TensorFlow", "Pandas", "NumPy", "Docker", "Git"]
   },
   {
     title: "Cloud/Databases",
@@ -19,8 +19,12 @@ const skillCategories = [
     skills: ["Power BI", "Tableau"]
   },
   {
+    title: "Frameworks",
+    skills: ["ReactJS", "Bootstrap", "NodeJS", "REST API"]
+  },
+  {
     title: "Coursework",
-    skills: ["Data Structures & Algorithms", "Object Oriented Programming", "Database Management", "Machine Learning", "NLP", "Data Visualization"]
+    skills: ["Data Structures & Algorithms", "Object Oriented Programming", "Database Management", "Software Engineering", "Machine Learning", "NLP", "Generative AI"]
   },
   {
     title: "Soft Skills",
