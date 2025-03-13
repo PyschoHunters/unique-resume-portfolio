@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -16,7 +17,7 @@ const About = () => {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-foreground/80 max-w-2xl mx-auto">
-            I'm an AI and ML professional passionate about creating impactful technology solutions.
+            I'm an AI and ML Engineer passionate about creating impactful technology solutions.
           </p>
         </motion.div>
         
@@ -36,7 +37,7 @@ const About = () => {
                 <div className="border-l-2 border-primary/30 pl-4 py-2">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h4 className="font-medium">Bachelor of Technology in Artificial Intelligence and Machine Learning</h4>
+                      <h4 className="font-medium">Bachelor of Engineering in Artificial Intelligence and Machine Learning</h4>
                       <p className="text-sm text-foreground/70">2021-25</p>
                     </div>
                     <span className="text-xs bg-blue-100 text-primary px-2 py-1 rounded font-medium">CGPA: 8.33/10</span>

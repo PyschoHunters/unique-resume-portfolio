@@ -29,7 +29,7 @@ const achievements = [
   },
   {
     title: "Leadership Positions",
-    description: "Membership Chair and Secretary of CSE at IEEE chapter RNSIT during 2021-22",
+    description: "Held the positions of Membership Chair and Secretary for BMSCE ACM Student chapter from 2021-23.",
     icon: Trophy,
     color: "bg-rose-500/10 text-rose-600"
   },

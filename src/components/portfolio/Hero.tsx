@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Link } from "react-scroll";
@@ -75,7 +76,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-foreground/80 mb-8 max-w-xl mx-auto md:mx-0"
             >
-              Enthusiastic AI and ML professional with hands-on experience in building chatbots, 
+              Enthusiastic AI and ML Engineer with hands-on experience in building chatbots, 
               AI-driven solutions, and data visualization tools.
             </motion.p>
             
