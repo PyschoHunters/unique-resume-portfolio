@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -38,11 +37,11 @@ const About = () => {
                   <div className="flex justify-between items-start">
                     <div>
                       <h4 className="font-medium">Bachelor of Technology in Artificial Intelligence and Machine Learning</h4>
-                      <p className="text-sm text-foreground/70">2022-25</p>
+                      <p className="text-sm text-foreground/70">2021-25</p>
                     </div>
-                    <span className="text-xs bg-blue-100 text-primary px-2 py-1 rounded font-medium">CGPA: 8.24/10</span>
+                    <span className="text-xs bg-blue-100 text-primary px-2 py-1 rounded font-medium">CGPA: 8.33/10</span>
                   </div>
-                  <p className="text-sm text-foreground/70 mt-1">2021 College of Engineering - Bengaluru</p>
+                  <p className="text-sm text-foreground/70 mt-1">BMS College of Engineering - Bengaluru</p>
                 </div>
                 
                 <div className="border-l-2 border-primary/30 pl-4 py-2">
@@ -78,14 +77,14 @@ const About = () => {
           >
             <h3 className="text-2xl font-semibold mb-6">My Journey</h3>
             <p className="text-foreground/80 mb-6">
-              I'm an enthusiastic AI and Machine Learning engineer with hands-on experience in building chatbots, 
-              AI-driven solutions, and data visualization tools. With a strong educational background in AI and ML, 
-              I've developed skills in Python, NLP, and cloud technologies.
+              I'm a passionate software developer with a strong foundation in full-stack development 
+              and modern technologies. My expertise spans across frontend development with React, 
+              backend systems with Node.js and FastAPI, and cloud technologies.
             </p>
             <p className="text-foreground/80 mb-6">
-              My experience spans various domains including computer vision, natural language processing, 
-              and cloud computing. I excel at problem-solving and collaborate effectively across teams to 
-              deliver impactful projects.
+              I have hands-on experience in building scalable applications, efficient APIs, 
+              and implementing robust database solutions. I excel at problem-solving and 
+              collaborate effectively across teams to deliver impactful projects.
             </p>
             
             <div className="grid grid-cols-2 gap-4 mt-8">

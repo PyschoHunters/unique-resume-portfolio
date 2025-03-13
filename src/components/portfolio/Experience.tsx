@@ -7,7 +7,7 @@ const experiences = [
     company: "Aeronautical Development Establishment (ADE), DRDO",
     location: "Bengaluru",
     period: "August 2024 - Sept 2024",
-    description: "Developed an AI-based image matching algorithm using ORB, Brute Force Matching, and CNN for DRDL applications, achieving high-accuracy location identification for missile navigation."
+    description: "Developed an AI-based image matching algorithm using ORB, Brute Force Matching, and CNN for DSMAC applications, achieving high-accuracy location identification for missile navigation."
   },
   {
     position: "Cloud and Data Intern",
@@ -18,7 +18,7 @@ const experiences = [
   },
   {
     position: "Machine Learning Intern",
-    company: "Global Edge Software Private Limited",
+    company: "Cloudside Technologies Private Limited",
     location: "Bengaluru",
     period: "Oct 2023 - Nov 2023",
     description: "Performed tasks in image processing with OpenCV, NLP insights, PyTorch for neural networks, and YOLO v5 for object detection."

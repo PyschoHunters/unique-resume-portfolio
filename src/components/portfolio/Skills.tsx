@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["C/C++", "Python", "HTML", "CSS", "JavaScript"]
+    skills: ["C/C++", "Python", "JavaScript", "TypeScript", "HTML", "CSS"]
   },
   {
     title: "Libraries & Tools",
@@ -12,23 +12,23 @@ const skillCategories = [
   },
   {
     title: "Cloud/Databases",
-    skills: ["Relational Database(MySQL)", "Google Cloud(GCP)", "DialogFlow"]
-  },
-  {
-    title: "Data Visualization Tools",
-    skills: ["Power BI", "Tableau"]
+    skills: ["MySQL", "MongoDB", "Google Cloud(GCP)", "DialogFlow"]
   },
   {
     title: "Frameworks",
-    skills: ["ReactJS", "Bootstrap", "NodeJS", "REST API"]
+    skills: ["ReactJS", "NodeJS", "FastAPI", "Flutter", "Express", "REST API"]
+  },
+  {
+    title: "Frontend",
+    skills: ["Bootstrap", "Tailwind CSS", "Material UI", "Redux"]
   },
   {
     title: "Coursework",
-    skills: ["Data Structures & Algorithms", "Object Oriented Programming", "Database Management", "Software Engineering", "Machine Learning", "NLP", "Generative AI"]
+    skills: ["Data Structures & Algorithms", "Object Oriented Programming", "Database Management", "Software Engineering"]
   },
   {
     title: "Soft Skills",
-    skills: ["Problem Solving", "Self-learning", "Presentation", "Adaptability"]
+    skills: ["Problem Solving", "Team Collaboration", "Communication", "Adaptability"]
   }
 ];
 

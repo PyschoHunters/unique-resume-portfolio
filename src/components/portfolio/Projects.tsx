@@ -7,21 +7,21 @@ const projects = [
   {
     title: "Medical Chatbot",
     description: "Medical chatbot using PaePaz, LangChain, Pinecone, Llama 2, and Hugging Face embeddings to deliver accurate symptom evaluation, medication guidance, and remedy suggestions, achieving high response accuracy.",
-    image: "public/lovable-uploads/377ef43a-c802-4a22-b2eb-b0513b32e232.png",
+    image: "/lovable-uploads/d173438c-aa8a-49c3-a759-2324b51849bd.png",
     link: "https://github.com/PyschoHunters/Medical-Chatbot",
     tags: ["AI", "Machine Learning", "Healthcare", "NLP"]
   },
   {
     title: "Plant Disease Prediction",
     description: "Developed a high-accuracy plant disease prediction model using a modified Tiny VGG CNN architecture with Python and TensorFlow/PyTorch.",
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/f3517632-38a8-4e57-bb7a-3083812825e8.png",
     link: "https://github.com/PyschoHunters/Plant-Disease-Detection",
     tags: ["Computer Vision", "AI", "Agriculture", "CNN"]
   },
   {
     title: "Car Rental Management System",
     description: "Developed a user-friendly car rental website with a detailed vehicle catalog and seamless booking process using HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, and Docker.",
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/fba9563f-002d-4b49-a3f3-5c421d7cec3e.png",
     link: "https://github.com/PyschoHunters/Car-Rental-Management-System",
     tags: ["Web Development", "Database", "UX/UI", "Backend"]
   }
