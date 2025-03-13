@@ -2,8 +2,6 @@
 import { Heart } from "lucide-react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
   return (
     <footer className="py-10 bg-gradient-to-t from-blue-50/90 to-transparent text-center">
       <div className="container mx-auto px-4">
@@ -62,16 +60,6 @@ const Footer = () => {
           <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
           <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
           <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
-        </div>
-        
-        <p className="text-foreground/60 text-sm">
-          © {currentYear} Manu Mohan. All rights reserved.
-        </p>
-        
-        <div className="text-sm text-foreground/60 mt-2 flex items-center justify-center">
-          <span>Made with</span>
-          <Heart size={14} className="mx-1 text-red-500" />
-          <span>and modern web technologies</span>
         </div>
       </div>
     </footer>

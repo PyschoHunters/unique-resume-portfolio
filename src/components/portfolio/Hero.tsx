@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Github, FileCode, Send } from "lucide-react";
 import { Link } from "react-scroll";
 import { useState } from "react";
 
@@ -86,21 +86,25 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             >
-              <button
-                onClick={() => setShowResume(true)}
-                className="px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+              <a
+                href="https://github.com/PyschoHunters"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
               >
-                View Resume
-              </button>
+                <Github size={18} />
+                Check My Projects
+              </a>
               <Link
                 to="projects"
                 spy={true}
                 smooth={true}
                 offset={-100}
                 duration={800}
-                className="px-6 py-3 bg-white border border-primary/20 text-primary rounded-full font-medium hover:bg-primary/5 transition-colors"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-primary/20 text-primary rounded-full font-medium hover:bg-primary/5 transition-colors"
               >
-                View My Work
+                <FileCode size={18} />
+                Explore Portfolio
               </Link>
             </motion.div>
           </div>
