@@ -26,7 +26,7 @@ const Index = () => {
 
   return (
     <main className="relative overflow-hidden">
-      <Toaster position="top-right" richColors closeButton />
+      <Toaster position="top-center" richColors closeButton expand={true} />
       <Navbar />
       <Hero />
       <About />

@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { Mail, MessageSquare, Phone } from "lucide-react";
 import { useState, useRef } from "react";
-import emailjs from '@emailjs/browser';
 import { toast } from "sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -29,35 +28,42 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // EmailJS configuration with real credentials
-    const serviceId = "service_cg0a9d6"; // EmailJS service ID
-    const templateId = "template_aqo5hnq"; // EmailJS template ID
-    const publicKey = "JDQ4XUicwJIBrxAin"; // EmailJS public key
-    
-    if (formRef.current) {
-      emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
-        .then((result) => {
-          console.log('Email sent successfully!', result.text);
-          setIsSubmitting(false);
-          setSubmitSuccess(true);
-          setFormState({
-            name: "",
-            email: "",
-            message: ""
-          });
-          
-          toast.success("Message sent successfully! I'll get back to you soon.");
-          
-          // Reset success message after 3 seconds
-          setTimeout(() => {
-            setSubmitSuccess(false);
-          }, 3000);
-        }, (error) => {
-          console.error('Failed to send email:', error.text);
-          setIsSubmitting(false);
-          toast.error("Failed to send message. Please try again later.");
+    // Use a simple fetch request instead of EmailJS
+    fetch("https://formsubmit.co/ajax/manumohan.ai21@gmail.com", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: formState.name,
+        email: formState.email,
+        message: formState.message
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Message sent successfully!', data);
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        setFormState({
+          name: "",
+          email: "",
+          message: ""
         });
-    }
+        
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        
+        // Reset success message after 3 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 3000);
+      })
+      .catch(error => {
+        console.error('Failed to send message:', error);
+        setIsSubmitting(false);
+        toast.error("Failed to send message. Please try again later.");
+      });
   };
   
   return (
