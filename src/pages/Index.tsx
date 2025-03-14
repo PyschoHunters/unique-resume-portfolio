@@ -9,6 +9,7 @@ import Projects from "@/components/portfolio/Projects";
 import Achievements from "@/components/portfolio/Achievements";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
+import { Toaster } from "sonner";
 
 const Index = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const Index = () => {
 
   return (
     <main className="relative overflow-hidden">
+      <Toaster position="top-right" richColors closeButton />
       <Navbar />
       <Hero />
       <About />
