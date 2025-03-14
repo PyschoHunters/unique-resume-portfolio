@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const experiences = [
   {
@@ -10,11 +11,11 @@ const experiences = [
     description: "Developed an AI-based image matching algorithm using ORB, Brute Force Matching, and CNN for DSMAC applications, achieving high-accuracy location identification for missile navigation."
   },
   {
-    position: "Cloud and Data Intern",
-    company: "Cloud Ambassadors, Bengaluru India",
+    position: "Machine Learning and Data Engineer",
+    company: "FabAlley",
     location: "Bengaluru",
     period: "June 2024 - August 2024",
-    description: "Engineered a conversational system using DialogFlow CX for entity training and intent recognition, integrated with WebSocket protocols for bi-directional streaming, Google Cloud's TTS/STT APIs, and Gemini for natural language processing. Implemented automated testing scripts and containerized with Docker for seamless deployment."
+    description: "Developed a state-of-the-art virtual try-on solution using advanced ML models like CATVTON and Flux inpainting, achieving SOTA performance with FID scores. Integrated LoRA weights and fine-tuning techniques to enhance garment reconstruction and try-on accuracy. Deployed the solution on Hugging Face Spaces with a user-friendly Gradio interface, enabling seamless virtual try-on experiences."
   },
   {
     position: "Machine Learning Intern",
@@ -26,6 +27,8 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <section id="experience" className="py-20 bg-blue-50/50">
       <div className="container mx-auto px-4">
@@ -41,13 +44,13 @@ const Experience = () => {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-foreground/80 max-w-2xl mx-auto">
-            My journey through various professional roles and internships has equipped me with diverse skills in AI and ML.
+            My journey through various professional roles has equipped me with diverse skills in software engineering, AI, and ML.
           </p>
         </motion.div>
         
         <div className="relative max-w-4xl mx-auto">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:translate-x-px"></div>
+          {/* Timeline line - hidden on mobile for better readability */}
+          <div className={`absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:translate-x-px ${isMobile ? 'hidden' : 'block'}`}></div>
           
           {/* Timeline items */}
           <div className="space-y-12">
@@ -59,16 +62,18 @@ const Experience = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`relative flex flex-col ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  !isMobile && index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } items-start md:gap-10`}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-md transform -translate-x-2 md:-translate-x-2.5 mt-5"></div>
+                {/* Timeline dot - hidden on mobile */}
+                {!isMobile && (
+                  <div className="absolute left-0 md:left-1/2 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-md transform -translate-x-2 md:-translate-x-2.5 mt-5"></div>
+                )}
                 
                 {/* Date/Company */}
-                <div className={`md:w-1/2 ${
-                  index % 2 === 0 ? "md:text-right md:pr-10" : "md:pl-10"
-                } pl-10 md:pl-0`}
+                <div className={`${isMobile ? 'w-full' : 'md:w-1/2'} ${
+                  !isMobile && index % 2 === 0 ? "md:text-right md:pr-10" : "md:pl-10"
+                } ${isMobile ? 'pl-0' : 'pl-10 md:pl-0'}`}
                 >
                   <div className="bg-white p-1 inline-block rounded mb-2">
                     <span className="text-xs font-medium bg-blue-100 text-primary px-3 py-1 rounded">
@@ -80,13 +85,13 @@ const Experience = () => {
                 </div>
                 
                 {/* Experience content */}
-                <div className={`md:w-1/2 pl-10 ${
-                  index % 2 === 0 ? "md:pl-10" : "md:pr-10 md:text-right"
+                <div className={`${isMobile ? 'w-full' : 'md:w-1/2'} ${isMobile ? 'pl-0 mt-2' : 'pl-10'} ${
+                  !isMobile && index % 2 === 0 ? "md:pl-10" : "md:pr-10 md:text-right"
                 }`}
                 >
                   <div className="glass-panel rounded-xl p-6 mt-4 md:mt-0">
                     <h4 className="text-lg font-semibold mb-2">{exp.position}</h4>
-                    <p className="text-sm text-foreground/80">{exp.description}</p>
+                    <p className={`text-sm text-foreground/80 ${!isMobile && index % 2 !== 0 ? 'md:text-right' : 'text-left'}`}>{exp.description}</p>
                   </div>
                 </div>
               </motion.div>

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Github } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const projects = [
   {
@@ -29,6 +30,7 @@ const projects = [
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
   
   return (
     <motion.div
@@ -47,43 +49,40 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         
-        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-80'}`}></div>
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300 ${isHovered || isMobile ? 'opacity-100' : 'opacity-80'}`}></div>
         
-        <div className="absolute inset-0 p-6 flex flex-col justify-end">
-          <h3 className="text-white text-xl font-semibold mb-2">{project.title}</h3>
+        <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end">
+          <h3 className="text-white text-lg md:text-xl font-semibold mb-2">{project.title}</h3>
           
-          <div className="flex flex-wrap gap-2 mb-3">
-            {project.tags.slice(0, 3).map((tag, idx) => (
+          <div className="flex flex-wrap gap-2 mb-2 md:mb-3">
+            {project.tags.slice(0, isMobile ? 2 : 3).map((tag, idx) => (
               <span 
                 key={idx} 
-                className="bg-white/20 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium"
+                className="bg-white/20 backdrop-blur-sm text-white px-2 py-0.5 rounded-full text-xs font-medium"
               >
                 {tag}
               </span>
             ))}
           </div>
           
-          <motion.p 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0, height: isHovered ? 'auto' : 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-white/90 text-sm mb-4 line-clamp-3"
+          <p 
+            className={`text-white/90 text-xs md:text-sm mb-3 line-clamp-3 ${isMobile ? 'block' : (isHovered ? 'block' : 'hidden')}`}
           >
             {project.description}
-          </motion.p>
+          </p>
           
-          <motion.a
+          <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
-            transition={{ duration: 0.3 }}
-            className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
+            className={`inline-flex items-center gap-2 bg-primary text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium hover:bg-primary/90 transition-colors ${isMobile ? 'block' : (isHovered ? 'opacity-100' : 'opacity-0 translate-y-2')}`}
+            style={{
+              transition: "opacity 0.3s ease, transform 0.3s ease"
+            }}
           >
-            <Github size={16} />
+            <Github size={isMobile ? 14 : 16} />
             View on GitHub
-          </motion.a>
+          </a>
         </div>
       </div>
     </motion.div>
@@ -91,26 +90,28 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
 };
 
 const Projects = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section id="projects" className="py-20 bg-blue-50/50">
+    <section id="projects" className="py-16 md:py-20 bg-blue-50/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
             Notable <span className="text-gradient">Projects</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-foreground/80 max-w-2xl mx-auto">
-            Take a look at some of the projects I've worked on, showcasing my skills in AI, ML, and software development.
+            Take a look at some of the projects I've worked on, showcasing my skills in software engineering, AI, and ML.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}

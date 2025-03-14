@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 import { ArrowDown, Github, FileCode, Send } from "lucide-react";
 import { Link } from "react-scroll";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [showResume, setShowResume] = useState(false);
+  const isMobile = useIsMobile();
   
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 pb-10 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center pt-16 md:pt-20 pb-10 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white z-[-1]" />
       
       {/* Resume modal */}
@@ -23,7 +25,7 @@ const Hero = () => {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute w-96 h-96 rounded-full bg-primary/5 -top-20 -right-20"
+          className="absolute w-64 md:w-96 h-64 md:h-96 rounded-full bg-primary/5 -top-20 -right-20"
           animate={{ 
             scale: [1, 1.2, 1],
             opacity: [0.7, 0.5, 0.7],
@@ -35,7 +37,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute w-80 h-80 rounded-full bg-blue-500/5 bottom-10 -left-20"
+          className="absolute w-56 md:w-80 h-56 md:h-80 rounded-full bg-blue-500/5 bottom-10 -left-20"
           animate={{ 
             scale: [1, 1.1, 1],
             opacity: [0.5, 0.3, 0.5],
@@ -50,7 +52,7 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
           <div className="flex-1 text-center md:text-left max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -58,14 +60,14 @@ const Hero = () => {
               transition={{ duration: 0.6 }}
               className="mb-2 inline-block bg-blue-100 text-primary px-3 py-1 rounded-full text-sm font-medium"
             >
-              Software Developer
+              Software Engineer
             </motion.div>
             
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 tracking-tight"
             >
               Hi, I'm <span className="text-gradient">A J V Manumohan</span>
             </motion.h1>
@@ -74,10 +76,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-foreground/80 mb-8 max-w-xl mx-auto md:mx-0"
+              className="text-lg md:text-xl text-foreground/80 mb-6 md:mb-8 max-w-xl mx-auto md:mx-0"
             >
-              Enthusiastic AI and ML Engineer with hands-on experience in building chatbots, 
-              AI-driven solutions, and data visualization tools.
+              Innovative Software Engineer specializing in ML/AI solutions, full-stack development, and cloud technologies. Passionate about building scalable applications that solve real-world problems.
             </motion.p>
             
             <motion.div
@@ -90,9 +91,9 @@ const Hero = () => {
                 href="https://github.com/PyschoHunters"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors text-sm md:text-base"
               >
-                <Github size={18} />
+                <Github size={isMobile ? 16 : 18} />
                 Check My Projects
               </a>
               <Link
@@ -101,9 +102,9 @@ const Hero = () => {
                 smooth={true}
                 offset={-100}
                 duration={800}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-primary/20 text-primary rounded-full font-medium hover:bg-primary/5 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-white border border-primary/20 text-primary rounded-full font-medium hover:bg-primary/5 transition-colors text-sm md:text-base"
               >
-                <FileCode size={18} />
+                <FileCode size={isMobile ? 16 : 18} />
                 Explore Portfolio
               </Link>
             </motion.div>
@@ -113,17 +114,17 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-1 max-w-md relative"
+            className={`flex-1 max-w-xs sm:max-w-sm md:max-w-md relative ${isMobile ? 'mt-8' : ''}`}
           >
-            <div className="relative w-full aspect-square max-w-md">
+            <div className="relative w-full aspect-square">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-500/20 rounded-3xl transform rotate-6"></div>
-              <div className="absolute inset-0 glass-panel rounded-3xl shadow-xl flex items-center justify-center p-8 backdrop-blur-sm border border-white/40">
+              <div className="absolute inset-0 glass-panel rounded-3xl shadow-xl flex items-center justify-center p-6 md:p-8 backdrop-blur-sm border border-white/40">
                 <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-r from-primary to-blue-700 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+                  <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 bg-gradient-to-r from-primary to-blue-700 rounded-full flex items-center justify-center text-white text-2xl md:text-3xl font-bold">
                     AJV
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">A J V Manumohan</h3>
-                  <p className="text-foreground/70 mb-4">Software Developer</p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-2">A J V Manumohan</h3>
+                  <p className="text-foreground/70 mb-4 text-sm md:text-base">Software Engineer</p>
                   <div className="flex justify-center space-x-4">
                     <a href="https://github.com/PyschoHunters" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
