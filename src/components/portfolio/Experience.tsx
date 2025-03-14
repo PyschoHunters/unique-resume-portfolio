@@ -12,7 +12,7 @@ const experiences = [
   },
   {
     position: "Machine Learning and Data Engineer",
-    company: "FabAlley",
+    company: "Cloud Ambassadors",
     location: "Bengaluru",
     period: "June 2024 - August 2024",
     description: "Developed a state-of-the-art virtual try-on solution using advanced ML models like CATVTON and Flux inpainting, achieving SOTA performance with FID scores. Integrated LoRA weights and fine-tuning techniques to enhance garment reconstruction and try-on accuracy. Deployed the solution on Hugging Face Spaces with a user-friendly Gradio interface, enabling seamless virtual try-on experiences."
