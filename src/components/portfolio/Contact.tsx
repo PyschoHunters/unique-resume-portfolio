@@ -1,7 +1,9 @@
 
 import { motion } from "framer-motion";
 import { Mail, MessageSquare, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
+import { toast } from "sonner";
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -12,6 +14,7 @@ const Contact = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -24,21 +27,37 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Mock form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormState({
-        name: "",
-        email: "",
-        message: ""
-      });
-      
-      // Reset success message after 3 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 3000);
-    }, 1500);
+    // Using EmailJS to send the form
+    // You'll need to replace these with your actual EmailJS credentials
+    // Sign up at https://www.emailjs.com/
+    const serviceId = "YOUR_SERVICE_ID"; // Replace with your EmailJS service ID
+    const templateId = "YOUR_TEMPLATE_ID"; // Replace with your EmailJS template ID
+    const publicKey = "YOUR_PUBLIC_KEY"; // Replace with your EmailJS public key
+    
+    if (formRef.current) {
+      emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
+        .then((result) => {
+          console.log('Email sent successfully!', result.text);
+          setIsSubmitting(false);
+          setSubmitSuccess(true);
+          setFormState({
+            name: "",
+            email: "",
+            message: ""
+          });
+          
+          toast.success("Message sent successfully! I'll get back to you soon.");
+          
+          // Reset success message after 3 seconds
+          setTimeout(() => {
+            setSubmitSuccess(false);
+          }, 3000);
+        }, (error) => {
+          console.error('Failed to send email:', error.text);
+          setIsSubmitting(false);
+          toast.error("Failed to send message. Please try again later.");
+        });
+    }
   };
   
   return (
@@ -167,7 +186,7 @@ const Contact = () => {
                 </div>
               ) : null}
               
-              <form onSubmit={handleSubmit}>
+              <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
