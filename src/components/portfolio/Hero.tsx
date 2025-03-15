@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, FileCode } from "lucide-react";
+import { Github, FileCode } from "lucide-react";
 import { Link } from "react-scroll";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -163,21 +163,6 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-        >
-          <p className="text-xs sm:text-sm text-foreground/60 mb-2">Scroll to explore</p>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <ArrowDown size={isMobile ? 16 : 20} className="text-primary" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
